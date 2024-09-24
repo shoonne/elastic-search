@@ -8,11 +8,7 @@ const port = 3001;
 app.use(cors());
 
 app.get("/results", (req, res) => {
-  const amountOfEmployees = req.query["Antal anställda"];
-  const position = req.query["Befattning"];
   const county = req.query["ort"];
-  const turnover = req.query["omsättning"];
-  const sortOption = req.query["sortOption"];
 
   async function sendESRequest() {
     const body = await client.search({
@@ -23,12 +19,6 @@ app.get("/results", (req, res) => {
         query: {
           bool: {
             filter: [
-              // {
-              //   term: { "Antal anställda": amountOfEmployees },
-              // },
-              // {
-              //   range: { omsättning: { gte: turnover } },
-              // },
               {
                 match: { Ort: county },
               },
@@ -37,7 +27,7 @@ app.get("/results", (req, res) => {
         },
       },
     });
-    console.log(body);
+    //console.log(body);
     res.json(body.hits.hits);
   }
   sendESRequest();

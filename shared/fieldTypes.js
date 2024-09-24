@@ -1,4 +1,4 @@
-export const fieldTypes = {
+const fieldTypes = {
   nrOfEmployees: "Antal anställda",
   expiredAgreement: "Avtal går ut",
   position: "Befattning",
@@ -13,10 +13,12 @@ export const fieldTypes = {
   currentSolution: "Nuvarande lösning",
   turnOver: "Omsättning tkr",
   orgNr: "Org nr",
-  county: "Ort",
+  county: "ort",
   postalAdress: "Postadress",
   postalCode: "Postnummer",
   reported: "Rapporterad",
   calledBy: "Ringd av",
   exchangeNumber: "Växelnummer",
 };
+
+module.exports = { fieldTypes };
